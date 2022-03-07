@@ -3,21 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `<div>
-    <label>UserName</label>
-    <input (input)="getFirstName($event)"  placeholder="Enter UserName"/>
-    <button (click)="saveUserName()">Save Name</button>
-    <h1>Your Name is : {{displayName}}</h1>
+    <label>Username</label>
+    <input [(ngModel)]="firstName" placeholder="Please Enter Name" />
+    <h1>{{firstName}}</h1>
+    <button (click)="changeName()">Change Name</button>
   </div>`,
   styles: []
 })
 export class AppComponent {
   firstName:string="";
-  displayName:string=""
-  
- getFirstName(data:any){
-   this.firstName=data.target.value;
- }
- saveUserName(){
-   this.displayName=this.firstName;
- }
+ 
+  changeName(){
+    this.firstName="Manish"
+  }
 }
